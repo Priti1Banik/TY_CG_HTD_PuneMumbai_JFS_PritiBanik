@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+<bean id="mobile" class="com.capgemini.springcore.beans.MobileBean" autowire="byType">
+<!-- <bean id="mobile" class="com.capgemini.springcore.beans.MobileBean" autowire="byName"> -->
+<property name="brandName" value="One plus"></property>
+<property name="modelName" value="7t"></property>  
+<property name="price" value="54000"></property> 
+</bean>
+
+<bean id="mobileDisplay" class="com.capgemini.springcore.beans.MobileDisplayBean">
+<property name="displaySize" value="6"></property>
+<property name="resolution" value="1440*2560"></property>
+</bean>
+
+<!-- <bean id="mobDisplay" class="com.capgemini.springcore.beans.MobileDisplayBean">
+<property name="displaySize" value="6"></property>
+<property name="resolution" value="1440*2560"></property>
+</bean> -->
+
+<!-- <bean id="mobileDisplay" class="com.capgemini.springcore.beans.MobileDisplayBean">
+<property name="displaySize" value="6"></property>
+<property name="resolution" value="1440*2560"></property>
+<property name="mobDisplay" ref="mobileDisplay"></property>
+</bean> -->
+</beans>
+

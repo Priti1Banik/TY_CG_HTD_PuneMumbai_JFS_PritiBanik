@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+<bean id="employee" class="com.capgemini.springcore.beans.EmployeeBean" autowire="byType">
+<property name="empId" value="101"></property>
+<property name="empName" value="Priti"></property>  
+
+</bean>
+
+<bean id="dev" class="com.capgemini.springcore.beans.DepartmentBean" primary="true">
+<property name="deptId" value="111"></property>
+<property name="deptName" value="Developer"></property>
+</bean>
+<!-- <bean id="test" class="com.capgemini.springcore.beans.DepartmentBean">
+<property name="deptId" value="112"></property>
+<property name="deptName" value="Testing"></property>
+</bean>
+<bean id="hr" class="com.capgemini.springcore.beans.DepartmentBean">
+<property name="deptId" value="113"></property>
+<property name="deptName" value="HR"></property>
+</bean> -->
+
+<bean id="hr" class="com.capgemini.springcore.beans.DepartmentBean" autowire-candidate="false">
+<property name="deptId" value="113"></property>
+<property name="deptName" value="HR"></property>
+</bean>
+
+</beans>

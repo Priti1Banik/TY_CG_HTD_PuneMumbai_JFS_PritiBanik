@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- bean definitions here -->
+<!--  <bean id="messageBean" class="com.capgemini.springcore.beans.MessageBean">
+name will call setter method of bean class
+<property name="message" value="Welcome to spring"></property> 
+</bean>  -->
+
+<bean class="com.capgemini.springcore.postprocessor.MyBeanPostProcessor"></bean>
+<bean class="com.capgemini.springcore.postprocessor.MyBeanFactoryPostProcessor"></bean>
+
+
+<bean id="messageBean2" class="com.capgemini.springcore.beans.MessageBean2"
+init-method="init" destroy-method="destroy">
+<property name="message" value="Happy Children's Day"></property> 
+</bean>
+
+
+
+<!-- <bean id="employee1" class="com.capgemini.springcore.beans.EmployeeBean">
+<property name="empId" value="101"></property>
+<property name="empName" value="Priti"></property>
+</bean>
+<bean id="employee2" class="com.capgemini.springcore.beans.EmployeeBean">
+<property name="empId" value="102"></property>
+<property name="empName" value="Saheli"></property>
+</bean> -->
+</beans>
