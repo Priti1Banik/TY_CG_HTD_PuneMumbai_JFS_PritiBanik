@@ -1,0 +1,5 @@
+package com.capgemini.medicalspringboot.selenium;
+
+public class User {
+
+}

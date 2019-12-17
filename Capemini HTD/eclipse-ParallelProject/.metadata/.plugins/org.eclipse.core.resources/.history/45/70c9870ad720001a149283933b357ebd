@@ -1,0 +1,67 @@
+package com.capgemini.medicalspringboot.selenium;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class User {
+	static {
+		System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
+	}
+	public static void main(String[] args) {
+	//Given the user has loaded the application in the browser and find login
+			WebDriver driver = new ChromeDriver();
+			driver.get("http://localhost:4200/login");
+
+	//the user clicks the email
+			driver.findElement(By.name("email")).sendKeys("priya@gmail.com");
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+	//the user clicks on the valid password
+			driver.findElement(By.name("password")).sendKeys("Qspider123");
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+	//the user clicks on the login Button$
+			driver.findElement(By.xpath("/html/body/app-root/app-login/html/body/div/div/form/div/div[2]/button")).click();
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+	//the dashboard page must be displayed
+			driver.findElement(By.xpath("//a[text()='Add To cart']")).click();
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+		// the user clicks on the insert button
+			driver.findElement(By.xpath("/html/body/app-root/app-add-to-cart/div[2]/button")).click();
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			
+	 //the user insert the quantity into the form
+			driver.findElement(By.name("quantity")).sendKeys("3");
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			
+		
+		//user added the product to cart successfully
+			driver.findElement(By.xpath("/html/body/app-root/app-add-to-cart/div[1]/div/div/div/div[2]/div/form/div[6]/button[2]")).click();
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+			//user view cart should be displayed
+			driver.findElement(By.xpath("//a[text()='view Cart']")).click();
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			
+			//user placed the order if he wants
+			driver.findElement(By.xpath("/html/body/app-root/app-see-cart/html/body/div/table/tbody/tr[12]/td[10]/button")).click();
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+					
+			//user added the order in the order list and see the order
+			driver.findElement(By.xpath("//a[text()='See Order']")).click();
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		
+			driver.findElement(By.xpath("/html/body/app-root/app-order-info/div/button")).click();
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			
+			//user has any query then sends the message
+			driver.findElement(By.xpath("//a[text()='Query']")).click();
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	}		
+}

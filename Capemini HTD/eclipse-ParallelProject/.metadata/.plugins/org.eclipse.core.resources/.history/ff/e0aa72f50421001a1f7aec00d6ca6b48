@@ -1,0 +1,5 @@
+package com.capgemini.medicalspringboot.beans;
+
+public class LoginBean {
+
+}

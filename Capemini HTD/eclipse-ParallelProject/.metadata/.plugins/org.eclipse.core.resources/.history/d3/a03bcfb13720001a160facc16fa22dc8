@@ -1,0 +1,75 @@
+package com.capgemini.junit;
+
+import com.capgemini.medicalhibernate.beans.AdminResponseBean;
+import com.capgemini.medicalhibernate.beans.CartBean;
+import com.capgemini.medicalhibernate.beans.MedicalBean;
+import com.capgemini.medicalhibernate.beans.UserRegistration;
+import com.capgemini.medicalhibernate.beans.UserRequestBean;
+
+public class MedicineJunit {
+	public boolean adminLogin(String username,String password) {
+		String adminname ="priti1";
+		String adminpassword ="guitar";
+		return true;
+	}
+	public boolean userLogin(String username,String password) {
+		String name="priti@gmail.com";
+		String userpassword = "priti1";
+		return true;
+	}
+	
+	public UserRegistration registerUser(String username,String password,String mobile) {
+		String name = "sneha24@gmail.com";
+		String createpassword = "sneha12";
+		String givemobile ="234657878";
+		return null;
+	}
+	
+	public MedicalBean insertMedicine(int code, String name, double price, int quantity, String category) {
+		int code1=27;
+		String name1="cebamed";
+		double price1=234;
+		int quantity1=13;
+		String category1="healthcare";
+		return null;
+	}
+
+	public MedicalBean getMedicine(int code) {
+		int code1= 27;
+		return null;
+	}
+	
+	public MedicalBean updateMedicine(int code,double price,int quantity) {
+		int code1 = 27;
+		double price1 =278;
+		int quantity1 =12;
+		return null;
+	}
+	
+	public MedicalBean deleteMedicine(int code) {
+		int code1 = 12;
+		return null;
+	}
+	
+	public UserRegistration deleteUser(int userid) {
+		int userid1 = 2;
+		return null;
+	}
+
+	public UserRegistration reset(int userid,String mobile,String password) {
+		int userid1 = 3;
+		String mobile1 = "9002674881";
+		String password1="qwerty";
+		return null; 
+	}
+
+//	public AdminResponseBean putResponse(int id, String response);
+
+	
+
+//	public AdminResponseBean getResponse(int id);
+//	public UserRequestBean putMessage(int userid, String usermessage);
+//	public CartBean addMedicine(int userid);
+//	public CartBean deleteMedicine1(int cartid);
+//	public CartBean payment(int userid);
+}

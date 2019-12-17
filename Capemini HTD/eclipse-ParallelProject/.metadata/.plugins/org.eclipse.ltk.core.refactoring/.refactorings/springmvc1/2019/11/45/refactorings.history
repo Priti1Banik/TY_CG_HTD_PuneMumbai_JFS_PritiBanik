@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;MedicalDAOImpl.java&apos; to &apos;medicalspringrest/src/main/java/com.capgemini.medicalspringrest.dao&apos;&#x0D;&#x0A;- Original project: &apos;springmvc1&apos;&#x0D;&#x0A;- Destination element: &apos;medicalspringrest/src/main/java/com.capgemini.medicalspringrest.dao&apos;&#x0D;&#x0A;- Original element: &apos;com.capgemini.springmvc.dao.MedicalDAOImpl.java&apos;" description="Copy compilation unit" destination="=medicalspringrest/src\/main\/java&lt;com.capgemini.medicalspringrest.dao" element1="/src\/main\/java&lt;com.capgemini.springmvc.dao{MedicalDAOImpl.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1573185010590" units="1" version="1.0"/>
+</session>

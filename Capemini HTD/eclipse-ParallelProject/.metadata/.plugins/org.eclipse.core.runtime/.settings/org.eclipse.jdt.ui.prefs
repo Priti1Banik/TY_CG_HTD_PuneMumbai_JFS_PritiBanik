@@ -1,0 +1,13 @@
+Refactoring.savealleditors=true
+content_assist_disabled_computers=org.eclipse.jdt.ui.textProposalCategory\u0000org.eclipse.jdt.ui.javaAllProposalCategory\u0000org.eclipse.jdt.ui.javaTypeProposalCategory\u0000org.eclipse.jdt.ui.javaNoTypeProposalCategory\u0000org.eclipse.jdt.ui.javaChainProposalCategory\u0000
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="com.capgemini.medical.dao.MedicalDAO"><rhs name\="com.capgemini.medical.dao.MedicalDAOImpl"/></lhs><lhs name\="com.capgemini.medical.bean.UserRegistration"><rhs name\="com.capgemini.medical.bean.UserRegistration"/></lhs><lhs name\="java.util.Iterator"><rhs name\="java.util.Scanner"/></lhs><lhs name\="java.io.Closeable"><rhs name\="java.util.Scanner"/></lhs><lhs name\="java.lang.AutoCloseable"><rhs name\="java.util.Scanner"/></lhs><lhs name\="com.capgemini.medicalhibernate.beans.UserRegistration"><rhs name\="com.capgemini.medicalhibernate.beans.UserRegistration"/></lhs><lhs name\="com.capgemini.medicalcollection.beans.UserRegistration"><rhs name\="com.capgemini.medicalcollection.beans.UserRegistration"/></lhs><lhs name\="com.capgemini.medicalcollection.beans.AdminResponseBean"><rhs name\="com.capgemini.medicalcollection.beans.AdminResponseBean"/></lhs><lhs name\="com.capgemini.medicalcollection.beans.OrderMedicineBean"><rhs name\="com.capgemini.medicalcollection.beans.OrderMedicineBean"/></lhs><lhs name\="java.lang.Enum"><rhs name\="javax.persistence.GenerationType"/></lhs><lhs name\="com.capgemini.medicalspringrest.beans.MedicineInfoBean"><rhs name\="com.capgemini.medicalspringrest.beans.MedicineInfoBean"/></lhs><lhs name\="com.capgemini.medicalspringrest.beans.MedicalResponse"><rhs name\="com.capgemini.medicalspringrest.beans.MedicalResponse"/></lhs><lhs name\="com.capgemini.medicalspringrest.beans.CartBean"><rhs name\="com.capgemini.medicalspringrest.beans.CartBean"/></lhs></history>
+content_assist_number_of_computers=22
+content_assist_proposals_background=255,255,255
+content_assist_proposals_foreground=0,0,0
+eclipse.preferences.version=1
+org.eclipse.jdt.internal.ui.navigator.layout=2
+org.eclipse.jdt.internal.ui.navigator.librariesnode=true
+org.eclipse.jdt.ui.formatterprofiles.version=17
+spelling_locale_initialized=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

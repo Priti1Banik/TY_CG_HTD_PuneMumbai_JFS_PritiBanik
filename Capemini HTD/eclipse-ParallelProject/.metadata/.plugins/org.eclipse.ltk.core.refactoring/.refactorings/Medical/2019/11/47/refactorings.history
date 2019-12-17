@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.capgemini.medical.bean.CartDAO&apos; to &apos;CartBean&apos;&#x0D;&#x0A;- Original project: &apos;Medical&apos;&#x0D;&#x0A;- Original element: &apos;com.capgemini.medical.bean.CartDAO&apos;&#x0D;&#x0A;- Renamed element: &apos;com.capgemini.medical.bean.CartBean&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;CartDAO&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.capgemini.medical.bean{CartDAO.java[CartDAO" matchStrategy="1" name="CartBean" qualified="false" references="true" similarDeclarations="false" stamp="1573995503277" textual="false" version="1.0"/>
+</session>

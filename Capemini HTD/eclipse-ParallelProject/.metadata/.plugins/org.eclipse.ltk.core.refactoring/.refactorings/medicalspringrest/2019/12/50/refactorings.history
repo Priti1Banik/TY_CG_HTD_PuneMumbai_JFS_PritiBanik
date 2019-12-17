@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;AdminUserBean.java&apos; to &apos;medicalspringboot/src/main/java/com.capgemini.medicalspringboot.beans&apos;&#x0D;&#x0A;- Original project: &apos;medicalspringrest&apos;&#x0D;&#x0A;- Destination element: &apos;medicalspringboot/src/main/java/com.capgemini.medicalspringboot.beans&apos;&#x0D;&#x0A;- Original element: &apos;com.capgemini.medicalspringrest.beans.AdminUserBean.java&apos;" description="Copy compilation unit" destination="=medicalspringboot/src\/main\/java&lt;com.capgemini.medicalspringboot.beans" element1="/src\/main\/java&lt;com.capgemini.medicalspringrest.beans{AdminUserBean.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1576048643240" units="1" version="1.0"/>
+</session>

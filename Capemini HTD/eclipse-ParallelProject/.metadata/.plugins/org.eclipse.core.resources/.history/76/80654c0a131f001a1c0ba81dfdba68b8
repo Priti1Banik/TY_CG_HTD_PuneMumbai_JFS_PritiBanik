@@ -1,0 +1,38 @@
+package com.capgemini.medicalspringboot.dao;
+
+
+import java.util.List;
+
+import com.capgemini.medicalspringboot.beans.AdminInfoBean;
+import com.capgemini.medicalspringboot.beans.AdminResponseBean;
+import com.capgemini.medicalspringboot.beans.AdminUserBean;
+import com.capgemini.medicalspringboot.beans.CartBean;
+import com.capgemini.medicalspringboot.beans.MedicineInfoBean;
+import com.capgemini.medicalspringboot.beans.UserInfoBean;
+import com.capgemini.medicalspringboot.beans.UserRequestBean;
+
+public interface MedicalDAO {
+	public AdminInfoBean authenticate(String username, String password);
+	public UserInfoBean authenticate1(String username, String password);
+	public boolean addUser(UserInfoBean userInfoBean);
+	public List<UserInfoBean> getAllUser();
+	public boolean addProduct(MedicineInfoBean medicineInfoBean);
+	public boolean updateProduct(MedicineInfoBean medicineInfoBean);
+	public boolean deleteProduct(int code);
+	public boolean deleteUser(int userid);
+	public MedicineInfoBean getProduct(int code);
+	public List<MedicineInfoBean> getAllProduct();
+	public boolean updateUser(UserInfoBean userInfoBean);
+	public List<MedicineInfoBean> getAllProduct1();
+	public MedicineInfoBean getProduct1(int code);
+	public CartBean addMedicine(int userid,String pname); 
+	public List<UserInfoBean> getAllMedicine();
+	public CartBean removeMedicine(int cartid);
+	public double payment(int uid);
+	public boolean putMessage(UserRequestBean userRequestBean);
+	public List<UserRequestBean> getMessage();
+	public boolean putResponse(AdminResponseBean adminResponseBean);
+	public AdminResponseBean getResponse(int id);
+	public AdminUserBean authenticate2(String username,String password);
+
+}

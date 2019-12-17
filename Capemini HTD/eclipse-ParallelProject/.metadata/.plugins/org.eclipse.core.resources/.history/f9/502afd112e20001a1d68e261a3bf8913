@@ -1,0 +1,60 @@
+package com.capgemini.medicalhibernate;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
+import com.capgemini.junit.MedicineJunit;
+import com.capgemini.medicalhibernate.beans.MedicalBean;
+import com.capgemini.medicalhibernate.beans.UserRegistration;
+
+public class MedicineTest {
+	MedicineJunit medicineJunit = new MedicineJunit();
+	@Test
+	public void adminLoginTest() {
+		boolean i = medicineJunit.adminLogin("priti1", "guitar");
+		assertEquals(true, i);
+	}
+	
+	@Test
+	public void userLoginTest() {
+		boolean i = medicineJunit.userLogin("priti@gmail.com", "priti1");
+		assertEquals(true, i);
+	}
+	
+	@Test
+	public void registerTest() {
+		UserRegistration i = medicineJunit.registerUser("sneha24@gmail.com", "sneha12","234657878");
+		assertEquals(null, i);
+	}
+	
+	@Test
+	public void insertMedicineTest() {
+		MedicalBean i = medicineJunit.insertMedicine(27,"cebamed",234,13,"healthcare");
+		assertEquals(null, i);
+	}
+	
+	@Test
+	public void getMedicineTest() {
+		MedicalBean i = medicineJunit.getMedicine(27);
+		assertEquals(null, i);
+	}
+	
+	@Test
+	public void updateMedicineTest() {
+		MedicalBean i = medicineJunit.updateMedicine(27,278,12);
+		assertEquals(null, i);
+	}
+	
+	@Test
+	public void deleteMedicineTest() {
+		MedicalBean i = medicineJunit.deleteMedicine(12);
+		assertEquals(null, i);
+	}
+	
+	@Test
+	public void deleteUserTest() {
+		UserRegistration i = medicineJunit.deleteUser(2);
+		assertEquals(null, i);
+	}
+}

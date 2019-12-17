@@ -1,0 +1,9 @@
+package com.capgemini.medicalspringboot.selenium;
+
+public class Register {
+	static {
+		System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
+	}
+	public static void main(String[] args) {
+}
+}

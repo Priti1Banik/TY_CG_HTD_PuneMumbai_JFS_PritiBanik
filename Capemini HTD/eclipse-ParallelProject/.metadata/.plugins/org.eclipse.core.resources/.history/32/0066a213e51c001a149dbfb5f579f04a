@@ -1,0 +1,135 @@
+package com.capgemini.medicalspringboot.beans;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class MedicalResponse {
+
+	private int statusCode;
+	private String message;
+	private String description;
+	private MedicineInfoBean medicalInfoBean;
+	private  List<MedicineInfoBean>  medicineList;
+	private UserInfoBean userInfoBean;
+	private  List<UserInfoBean>  userList;
+	private AdminInfoBean adminInfoBean;
+	private  List<AdminInfoBean>  adminList;
+	private CartBean cartBean;
+	private  List<CartBean>  cartList;
+	private UserRequestBean userRequestBean;
+	private  List<UserRequestBean>  userRequestList;
+	private AdminResponseBean adminResponseBean;
+	private  List<AdminResponseBean>  adminResponseList;
+	private double bill;
+	private AdminUserBean adminUserBean;
+	private  List<AdminUserBean>  adminUserList;
+	public double getBill() {
+		return bill;
+	}
+	public void setBill(double bill) {
+		this.bill = bill;
+	}
+	public int getStatusCode() {
+		return statusCode;
+	}
+	public void setStatusCode(int statusCode) {
+		this.statusCode = statusCode;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public MedicineInfoBean getMedicalInfoBean() {
+		return medicalInfoBean;
+	}
+	public void setMedicalInfoBean(MedicineInfoBean medicalInfoBean) {
+		this.medicalInfoBean = medicalInfoBean;
+	}
+	public List<MedicineInfoBean> getMedicineList() {
+		return medicineList;
+	}
+	public void setMedicineList(List<MedicineInfoBean> medicineList) {
+		this.medicineList = medicineList;
+	}
+	public UserInfoBean getUserInfoBean() {
+		return userInfoBean;
+	}
+	public void setUserInfoBean(UserInfoBean userInfoBean) {
+		this.userInfoBean = userInfoBean;
+	}
+	public List<UserInfoBean> getUserList() {
+		return userList;
+	}
+	public void setUserList(List<UserInfoBean> userList) {
+		this.userList = userList;
+	}
+	public AdminInfoBean getAdminInfoBean() {
+		return adminInfoBean;
+	}
+	public void setAdminInfoBean(AdminInfoBean adminInfoBean) {
+		this.adminInfoBean = adminInfoBean;
+	}
+	public List<AdminInfoBean> getAdminList() {
+		return adminList;
+	}
+	public void setAdminList(List<AdminInfoBean> adminList) {
+		this.adminList = adminList;
+	}
+	public CartBean getCartBean() {
+		return cartBean;
+	}
+	public void setCartBean(CartBean cartBean) {
+		this.cartBean = cartBean;
+	}
+	public List<CartBean> getCartList() {
+		return cartList;
+	}
+	public void setCartList(List<CartBean> cartList) {
+		this.cartList = cartList;
+	}
+	public UserRequestBean getUserRequestBean() {
+		return userRequestBean;
+	}
+	public void setUserRequestBean(UserRequestBean userRequestBean) {
+		this.userRequestBean = userRequestBean;
+	}
+	public List<UserRequestBean> getUserRequestList() {
+		return userRequestList;
+	}
+	public void setUserRequestList(List<UserRequestBean> userRequestList) {
+		this.userRequestList = userRequestList;
+	}
+	public AdminResponseBean getAdminResponseBean() {
+		return adminResponseBean;
+	}
+	public void setAdminResponseBean(AdminResponseBean adminResponseBean) {
+		this.adminResponseBean = adminResponseBean;
+	}
+	public List<AdminResponseBean> getAdminResponseList() {
+		return adminResponseList;
+	}
+	public void setAdminResponseList(List<AdminResponseBean> adminResponseList) {
+		this.adminResponseList = adminResponseList;
+	}
+	public AdminUserBean getAdminUserBean() {
+		return adminUserBean;
+	}
+	public void setAdminUserBean(AdminUserBean adminUserBean) {
+		this.adminUserBean = adminUserBean;
+	}
+	public List<AdminUserBean> getAdminUserList() {
+		return adminUserList;
+	}
+	public void setAdminUserList(List<AdminUserBean> adminUserList) {
+		this.adminUserList = adminUserList;
+	}
+}

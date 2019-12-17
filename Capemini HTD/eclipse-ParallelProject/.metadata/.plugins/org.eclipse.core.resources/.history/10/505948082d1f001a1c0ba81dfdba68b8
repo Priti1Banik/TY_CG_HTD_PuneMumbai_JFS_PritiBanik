@@ -1,0 +1,387 @@
+package com.capgemini.medicalspringboot.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.capgemini.medicalspringboot.beans.AdminInfoBean;
+import com.capgemini.medicalspringboot.beans.AdminResponseBean;
+import com.capgemini.medicalspringboot.beans.AdminUserBean;
+import com.capgemini.medicalspringboot.beans.CartBean;
+import com.capgemini.medicalspringboot.beans.MedicalResponse;
+import com.capgemini.medicalspringboot.beans.MedicineInfoBean;
+import com.capgemini.medicalspringboot.beans.UserInfoBean;
+import com.capgemini.medicalspringboot.beans.UserRequestBean;
+import com.capgemini.medicalspringboot.service.MedicalService;
+
+//@CrossOrigin(origins = "http://localhost:4200")
+@RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+public class MedicalRestController {
+	@Autowired
+	private MedicalService service;
+
+	@GetMapping("/getAllProduct")
+	public MedicalResponse getAllProduct() {
+		List<MedicineInfoBean> medicineList = service.getAllProduct();
+		MedicalResponse response = new MedicalResponse();
+		if (medicineList != null && !medicineList.isEmpty()) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Medicines are found");
+			response.setMedicineList(medicineList);
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("Unable to fetch medicine record");
+		}
+		return response;
+	}
+
+	@GetMapping(path = "/getProduct", consumes = { MediaType.APPLICATION_XML_VALUE,
+			MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_XML_VALUE,
+					MediaType.APPLICATION_JSON_VALUE })
+	public MedicalResponse getProduct(int code) {
+		MedicineInfoBean medicineInfoBean = service.getProduct(code);
+		MedicalResponse response = new MedicalResponse();
+		if (medicineInfoBean != null) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Medicine details is displayed");
+			response.setMedicalInfoBean(medicineInfoBean);
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("Medicine Code" + code + "Not Found");
+		}
+		return response;
+	}
+
+	@PutMapping(path = "/addProduct", consumes = { MediaType.APPLICATION_XML_VALUE,
+			MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE,
+					MediaType.APPLICATION_XML_VALUE })
+	public MedicalResponse addProduct(@RequestBody MedicineInfoBean medicineInfoBean) {
+		boolean isAdded = service.addProduct(medicineInfoBean);
+		MedicalResponse response = new MedicalResponse();
+		if (isAdded) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Medicine Added");
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("Medicine is not Added");
+		}
+		return response;
+	}
+
+	@DeleteMapping(path = "/deleteProduct/{code}")
+	//, consumes = { MediaType.APPLICATION_XML_VALUE,
+			//MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_XML_VALUE,
+				//	MediaType.APPLICATION_JSON_VALUE })
+	public MedicalResponse deleteProduct(@PathVariable int code) {
+		boolean isDeleted = service.deleteProduct(code);
+		MedicalResponse response = new MedicalResponse();
+		if (isDeleted) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Product Delete");
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("Product is not Deleted");
+		}
+		return response;
+	}
+
+	@PostMapping( "/updateProduct")
+	public MedicalResponse updateProduct(@RequestBody MedicineInfoBean medicineInfoBean) {
+		boolean isUpdated = service.updateProduct(medicineInfoBean);
+		MedicalResponse response = new MedicalResponse();
+		if (isUpdated) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Medicine Updated");
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("Medicine is not updated");
+		}
+		return response;
+	}
+
+	@PostMapping(path = "/addUser", consumes = { MediaType.APPLICATION_XML_VALUE,
+			MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE,
+					MediaType.APPLICATION_XML_VALUE })
+	public MedicalResponse addUser(@RequestBody UserInfoBean userInfoBean) {
+		boolean isAdded = service.addUser(userInfoBean);
+		MedicalResponse response = new MedicalResponse();
+		if (isAdded) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("User Added");
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("User is not Added");
+		}
+		return response;
+	}
+
+	@GetMapping("/getAllUser")
+	public MedicalResponse getAllUser() {
+		List<UserInfoBean> userList = service.getAllUser();
+		MedicalResponse response = new MedicalResponse();
+		if (userList != null && !userList.isEmpty()) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Users are found");
+			response.setUserList(userList);
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("Unable to fetch user record");
+		}
+		return response;
+	}
+
+	@DeleteMapping(path = "/deleteUser/{userid}")
+	//, produces = { MediaType.APPLICATION_XML_VALUE,
+	//		MediaType.APPLICATION_JSON_VALUE })
+	public MedicalResponse deleteUser(@PathVariable int userid) {                        //@RequestParam("userid")
+		//int uId = Integer.parseInt(userid);
+		boolean isDeleted = service.deleteUser(userid);
+		MedicalResponse response = new MedicalResponse();
+		if (isDeleted) {                                                            
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("User Delete");
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("User is not Deleted");
+		}
+		return response;
+	}
+
+	@PostMapping(path = "/updateUser", consumes = { MediaType.APPLICATION_XML_VALUE,
+			MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_XML_VALUE,
+					MediaType.APPLICATION_JSON_VALUE })
+	public MedicalResponse updateUser(@RequestBody UserInfoBean userInfoBean) {
+		boolean isUpdated = service.updateUser(userInfoBean);
+		MedicalResponse response = new MedicalResponse();
+		if (isUpdated) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("User details Updated");
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("User details is not updated");
+		}
+		return response;
+	}
+
+	@PutMapping(path = "/addMedicine")
+	public MedicalResponse addMedicine(@RequestParam int userid, @RequestParam String pname) {
+		CartBean isAdded = service.addMedicine(userid, pname);
+		MedicalResponse response = new MedicalResponse();
+		if (isAdded != null) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Medicine Added to cart");
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("Medicine is not Added to cart");
+		}
+		return response;
+	}
+
+	@DeleteMapping(path = "/removeMedicine")
+	public MedicalResponse removeMedicine(int cartid) {
+		CartBean isDeleted = service.removeMedicine(cartid);
+		MedicalResponse response = new MedicalResponse();
+		if (isDeleted != null) {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("Medicine is not delete from cart");
+		} else {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Medicine is delete from cart");
+		}
+		return response;
+	}
+
+	@PutMapping(path = "/putMessage", consumes = { MediaType.APPLICATION_XML_VALUE,
+			MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE,
+					MediaType.APPLICATION_XML_VALUE })
+	public MedicalResponse putMessage(@RequestBody UserRequestBean userRequestBean) {
+		boolean isAdded = service.putMessage(userRequestBean);
+		MedicalResponse response = new MedicalResponse();
+		if (isAdded) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Message Added");
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("Message is not Added");
+		}
+		return response;
+	}
+
+	@GetMapping("/getAllMessage")
+	public MedicalResponse getAllMessage() {
+		List<UserRequestBean> userRequestList = service.getMessage();
+		MedicalResponse response = new MedicalResponse();
+		if (userRequestList != null && !userRequestList.isEmpty()) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Message are found");
+			response.setUserRequestList(userRequestList);
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("Unable to fetch message");
+		}
+		return response;
+	}
+
+	@PutMapping(path = "/putResponse", consumes = { MediaType.APPLICATION_XML_VALUE,
+			MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_JSON_VALUE,
+					MediaType.APPLICATION_XML_VALUE })
+	public MedicalResponse putResponse(@RequestBody AdminResponseBean adminResponseBean) {
+		boolean isAdded = service.putResponse(adminResponseBean);
+		MedicalResponse response = new MedicalResponse();
+		if (isAdded) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Message Added");
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("Message is not Added");
+		}
+		return response;
+	}
+
+	@GetMapping(path = "/getResponse", consumes = { MediaType.APPLICATION_XML_VALUE,
+			MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_XML_VALUE,
+					MediaType.APPLICATION_JSON_VALUE })
+	public MedicalResponse getResponse(int id) {
+		AdminResponseBean adminResponseBean = service.getResponse(id);
+		MedicalResponse response = new MedicalResponse();
+		if (adminResponseBean != null) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Response found");
+			response.setAdminResponseBean(adminResponseBean);
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("Response for " + id + "Not Found");
+		}
+		return response;
+	}
+
+	@GetMapping(path = "/adminLogin", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+	public MedicalResponse adminLogin(String username, String password) {
+		AdminInfoBean adminInfoBean = service.authenticate(username, password);
+		MedicalResponse response = new MedicalResponse();
+		if (adminInfoBean != null) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Logged in..");
+			response.setAdminInfoBean(adminInfoBean);
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("Wrong Credentials..!!!");
+		}
+		return response;
+	}
+
+	@GetMapping(path = "/userLogin", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+	public MedicalResponse userLogin(String username, String password) {
+		UserInfoBean userInfoBean = service.authenticate1(username, password);
+		MedicalResponse response = new MedicalResponse();
+		if (userInfoBean != null) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Logged in...");
+			response.setUserInfoBean(userInfoBean);
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("Wrong Credentials..!!!");
+		}
+		return response;
+	}
+
+	@GetMapping(path = "/payment", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+	public MedicalResponse payment(int uid) {
+		double bill = service.payment(uid);
+		MedicalResponse response = new MedicalResponse();
+		if (bill != 0) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Bill generated...!!!");
+			response.setBill(bill);
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("Bill not generated..!!");
+		}
+		return response;
+	}
+
+	@PostMapping(path = "/adminUserLogin")
+
+	public MedicalResponse adminUserLogin(@RequestBody AdminUserBean adminUserBean) {
+		String username = adminUserBean.getUsername();
+		String password = adminUserBean.getPassword();
+		adminUserBean= service.authenticate2(username, password);
+		MedicalResponse response = new MedicalResponse();
+		if (adminUserBean != null) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("Logged in..");
+			response.setRole(adminUserBean);
+			//response.setAdminUserBean(adminUserBean);
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("Wrong Credentials..!!!");
+		}
+		return response;
+	}
+	
+	@GetMapping("/getAllMedicine")
+	public MedicalResponse getAllMedicine() {
+		List<CartBean> cartList = service.getAllMedicine();
+		MedicalResponse response = new MedicalResponse();
+		if (cartList != null && !cartList.isEmpty()) {
+			response.setStatusCode(201);
+			response.setMessage("Success");
+			response.setDescription("cart details are found");
+			response.setCartList(cartList);
+		} else {
+			response.setStatusCode(401);
+			response.setMessage("Failed");
+			response.setDescription("Unable to fetch cart details");
+		}
+		return response;
+	}
+}

@@ -1,0 +1,17 @@
+package com.capgemini.medicalhibernate;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
+import com.capgemini.junit.MedicineJunit;
+
+public class MedicineTest {
+
+	@Test
+	public void addTest() {
+		MedicineJunit medicineJunit = new MedicineJunit();
+		boolean i = medicineJunit.adminLogin("priti1", "guitar");
+		assertEquals(true, i);
+	}
+}
